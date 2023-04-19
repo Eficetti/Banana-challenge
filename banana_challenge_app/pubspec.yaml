@@ -7,6 +7,8 @@ environment:
   sdk: ">=2.18.0 <3.0.0"
 
 dependencies:
+  banana_challenge_commons:
+    path: ../banana_challenge_commons
   bloc: ^8.1.1
   flutter:
     sdk: flutter
