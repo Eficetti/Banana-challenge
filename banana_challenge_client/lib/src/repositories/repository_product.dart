@@ -26,7 +26,7 @@ class RepositoryProduct extends Repository {
   }
 
   /// This method will get a product by id from the API.
-  Future<Product> getProductById(String id) async {
+  Future<Product> getProductById(int id) async {
     final url = Uri.https(
       Repository.baseUrl,
       '/products/$id',

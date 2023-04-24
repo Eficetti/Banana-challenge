@@ -34,4 +34,18 @@ class ProductCubit extends Cubit<ProductState> {
       emit(state.copyWith(status: ProductStatus.failure));
     }
   }
+
+  Future<void> getProductById(int id) async {
+    emit(state.copyWith(status: ProductStatus.attempting));
+
+    try {
+      final product = await repo.getProductById(id);
+
+      emit(
+        state.copyWith(status: ProductStatus.success, selectedProduct: product),
+      );
+    } catch (e) {
+      emit(state.copyWith(status: ProductStatus.failure));
+    }
+  }
 }

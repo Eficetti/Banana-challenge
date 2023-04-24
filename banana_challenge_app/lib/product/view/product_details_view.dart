@@ -22,22 +22,28 @@ class ProductDetailsPage extends StatelessWidget {
   }
 }
 
-class ProductDetailsView extends StatelessWidget {
+class ProductDetailsView extends StatefulWidget {
   const ProductDetailsView({super.key, required this.product});
 
   final Product product;
 
   @override
+  State<ProductDetailsView> createState() => _ProductDetailsViewState();
+}
+
+class _ProductDetailsViewState extends State<ProductDetailsView> {
+  @override
+  void initState() {
+    super.initState();
+    // context.read<ProductCubit>().getProductById(widget.product.id ?? 0);
+  }
+
+  @override
   Widget build(BuildContext context) {
-    context.read<ProductCubit>().getHomeData();
     final l10n = context.l10n;
 
-    return BlocConsumer<ProductCubit, ProductState>(
+    return BlocListener<ProductCubit, ProductState>(
       listener: (context, state) {
-        if (state.status.isAttempting) {
-          const CircularProgressIndicator();
-        }
-
         if (state.status.isFailure) {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
@@ -46,31 +52,37 @@ class ProductDetailsView extends StatelessWidget {
           );
         }
       },
-      builder: (context, state) {
-        return Scaffold(
-          appBar: AppBar(
-            backgroundColor: const Color(BananaConstants.bananaMainColor),
-            title: Text(product.title ?? '-'),
-          ),
-          body: Column(
-            children: [
-              ProductCard(
-                product: product,
-              ),
-              Expanded(
-                child: Align(
-                  alignment: Alignment.bottomCenter,
-                  child: BananaButton(
-                    onPressed: () {},
-                    text: l10n.addToShoppingCart,
-                    width: 330,
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: const Color(BananaConstants.bananaMainColor),
+          title: Text(widget.product.title ?? '-'),
+        ),
+        body: BlocBuilder<ProductCubit, ProductState>(
+          builder: (context, state) {
+            if (state.status.isAttempting) {
+              const CircularProgressIndicator();
+            }
+
+            return Column(
+              children: [
+                ProductCard(
+                  product: widget.product,
+                ),
+                Expanded(
+                  child: Align(
+                    alignment: Alignment.bottomCenter,
+                    child: BananaButton(
+                      onPressed: () {},
+                      text: l10n.addToShoppingCart,
+                      width: 330,
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
-        );
-      },
+              ],
+            );
+          },
+        ),
+      ),
     );
   }
 }

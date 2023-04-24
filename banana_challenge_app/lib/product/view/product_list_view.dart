@@ -16,21 +16,37 @@ class ProductPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => ProductCubit(),
-      child: ProductListView(),
+      child: const ProductListView(),
     );
   }
 }
 
-class ProductListView extends StatelessWidget {
-  ProductListView({super.key});
+class ProductListView extends StatefulWidget {
+  const ProductListView({super.key});
 
+  @override
+  State<ProductListView> createState() => _ProductListViewState();
+}
+
+class _ProductListViewState extends State<ProductListView> {
   final searchBarController = TextEditingController();
 
   @override
-  Widget build(BuildContext context) {
-    context.read<ProductCubit>().getHomeData();
+  void dispose() {
+    super.dispose();
+    searchBarController.dispose();
+  }
 
-    return BlocConsumer<ProductCubit, ProductState>(
+  @override
+  void initState() {
+    super.initState();
+    context.read<ProductCubit>().getHomeData();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = context.l10n;
+    return BlocListener<ProductCubit, ProductState>(
       listener: (context, state) {
         if (state.status.isFailure) {
           ScaffoldMessenger.of(context).showSnackBar(
@@ -40,33 +56,40 @@ class ProductListView extends StatelessWidget {
           );
         }
       },
-      builder: (context, state) {
-        final l10n = context.l10n;
-        return Scaffold(
-          appBar: AppBar(
-            automaticallyImplyLeading: false,
-            backgroundColor: const Color(BananaConstants.bananaMainColor),
-            title: const Text('Flutter Challenge 2023'),
-          ),
-          body: Column(
-            children: [
-              BananaSearchBox(
-                searchBarController: searchBarController,
-              ),
-              if (state.products.isEmpty)
-                Column(
-                  children: [
-                    SizedBox(height: 80.sp),
-                    Center(
-                      child: Text(
-                        '${l10n.productsNotFound} ${searchBarController.text}',
-                      ),
-                    ),
-                  ],
-                )
-              else
-                Expanded(
-                  child: ListView.builder(
+      child: Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          backgroundColor: const Color(BananaConstants.bananaMainColor),
+          title: const Text('Flutter Challenge 2023'),
+        ),
+        body: Column(
+          children: [
+            BananaSearchBox(
+              searchBarController: searchBarController,
+            ),
+            Expanded(
+              child: BlocBuilder<ProductCubit, ProductState>(
+                builder: (context, state) {
+                  if (state.status.isAttempting) {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
+
+                  if (state.products.isEmpty && !state.status.isAttempting) {
+                    return Column(
+                      children: [
+                        SizedBox(height: 80.sp),
+                        Center(
+                          child: Text(
+                            '${l10n.productsNotFound}${searchBarController.text}',
+                          ),
+                        ),
+                      ],
+                    );
+                  }
+
+                  return ListView.builder(
                     itemCount: state.products.length,
                     itemBuilder: (context, index) {
                       return GestureDetector(
@@ -83,12 +106,13 @@ class ProductListView extends StatelessWidget {
                         ),
                       );
                     },
-                  ),
-                ),
-            ],
-          ),
-        );
-      },
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

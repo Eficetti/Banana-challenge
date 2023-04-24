@@ -24,18 +24,22 @@ class ProductState {
   const ProductState({
     this.status = ProductStatus.initial,
     this.products = const [],
+    this.selectedProduct,
   });
 
   final ProductStatus status;
   final List<Product> products;
+  final Product? selectedProduct;
 
   ProductState copyWith({
     ProductStatus? status,
     List<Product>? products,
+    Product? selectedProduct,
   }) {
     return ProductState(
       status: status ?? this.status,
       products: products ?? this.products,
+      selectedProduct: selectedProduct ?? this.selectedProduct,
     );
   }
 }
