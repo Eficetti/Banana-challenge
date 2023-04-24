@@ -20,17 +20,38 @@ Product _$ProductFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Product {
-  String get id => throw _privateConstructorUsedError;
-  String get title => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
-  double get price => throw _privateConstructorUsedError;
-  double get discountPercentage => throw _privateConstructorUsedError;
-  double get rating => throw _privateConstructorUsedError;
-  int get stock => throw _privateConstructorUsedError;
-  String get brand => throw _privateConstructorUsedError;
-  String get category => throw _privateConstructorUsedError;
-  String get thumbnail => throw _privateConstructorUsedError;
-  List<String> get images => throw _privateConstructorUsedError;
+  /// This is the id of the product
+  int? get id => throw _privateConstructorUsedError;
+
+  /// This is the title of the product
+  String? get title => throw _privateConstructorUsedError;
+
+  /// This is the description of the product
+  String? get description => throw _privateConstructorUsedError;
+
+  /// This is the price of the product
+  double? get price => throw _privateConstructorUsedError;
+
+  /// This is the discount percentage of the product
+  double? get discountPercentage => throw _privateConstructorUsedError;
+
+  /// This is the rating of the product
+  double? get rating => throw _privateConstructorUsedError;
+
+  /// This is the stock of the product
+  int? get stock => throw _privateConstructorUsedError;
+
+  /// This is the brand of the product
+  String? get brand => throw _privateConstructorUsedError;
+
+  /// This is the category of the product
+  String? get category => throw _privateConstructorUsedError;
+
+  /// This is the thumbnail of the product
+  String? get thumbnail => throw _privateConstructorUsedError;
+
+  /// This is the images of the product
+  List<String>? get images => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,17 +64,17 @@ abstract class $ProductCopyWith<$Res> {
       _$ProductCopyWithImpl<$Res, Product>;
   @useResult
   $Res call(
-      {String id,
-      String title,
-      String description,
-      double price,
-      double discountPercentage,
-      double rating,
-      int stock,
-      String brand,
-      String category,
-      String thumbnail,
-      List<String> images});
+      {int? id,
+      String? title,
+      String? description,
+      double? price,
+      double? discountPercentage,
+      double? rating,
+      int? stock,
+      String? brand,
+      String? category,
+      String? thumbnail,
+      List<String>? images});
 }
 
 /// @nodoc
@@ -69,63 +90,63 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? title = null,
-    Object? description = null,
-    Object? price = null,
-    Object? discountPercentage = null,
-    Object? rating = null,
-    Object? stock = null,
-    Object? brand = null,
-    Object? category = null,
-    Object? thumbnail = null,
-    Object? images = null,
+    Object? id = freezed,
+    Object? title = freezed,
+    Object? description = freezed,
+    Object? price = freezed,
+    Object? discountPercentage = freezed,
+    Object? rating = freezed,
+    Object? stock = freezed,
+    Object? brand = freezed,
+    Object? category = freezed,
+    Object? thumbnail = freezed,
+    Object? images = freezed,
   }) {
     return _then(_value.copyWith(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      title: null == title
+              as int?,
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
+              as String?,
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      price: null == price
+              as String?,
+      price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as double,
-      discountPercentage: null == discountPercentage
+              as double?,
+      discountPercentage: freezed == discountPercentage
           ? _value.discountPercentage
           : discountPercentage // ignore: cast_nullable_to_non_nullable
-              as double,
-      rating: null == rating
+              as double?,
+      rating: freezed == rating
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
-              as double,
-      stock: null == stock
+              as double?,
+      stock: freezed == stock
           ? _value.stock
           : stock // ignore: cast_nullable_to_non_nullable
-              as int,
-      brand: null == brand
+              as int?,
+      brand: freezed == brand
           ? _value.brand
           : brand // ignore: cast_nullable_to_non_nullable
-              as String,
-      category: null == category
+              as String?,
+      category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as String,
-      thumbnail: null == thumbnail
+              as String?,
+      thumbnail: freezed == thumbnail
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
-              as String,
-      images: null == images
+              as String?,
+      images: freezed == images
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String>?,
     ) as $Val);
   }
 }
@@ -138,17 +159,17 @@ abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String id,
-      String title,
-      String description,
-      double price,
-      double discountPercentage,
-      double rating,
-      int stock,
-      String brand,
-      String category,
-      String thumbnail,
-      List<String> images});
+      {int? id,
+      String? title,
+      String? description,
+      double? price,
+      double? discountPercentage,
+      double? rating,
+      int? stock,
+      String? brand,
+      String? category,
+      String? thumbnail,
+      List<String>? images});
 }
 
 /// @nodoc
@@ -161,113 +182,139 @@ class __$$_ProductCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? title = null,
-    Object? description = null,
-    Object? price = null,
-    Object? discountPercentage = null,
-    Object? rating = null,
-    Object? stock = null,
-    Object? brand = null,
-    Object? category = null,
-    Object? thumbnail = null,
-    Object? images = null,
+    Object? id = freezed,
+    Object? title = freezed,
+    Object? description = freezed,
+    Object? price = freezed,
+    Object? discountPercentage = freezed,
+    Object? rating = freezed,
+    Object? stock = freezed,
+    Object? brand = freezed,
+    Object? category = freezed,
+    Object? thumbnail = freezed,
+    Object? images = freezed,
   }) {
     return _then(_$_Product(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      title: null == title
+              as int?,
+      title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
+              as String?,
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      price: null == price
+              as String?,
+      price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as double,
-      discountPercentage: null == discountPercentage
+              as double?,
+      discountPercentage: freezed == discountPercentage
           ? _value.discountPercentage
           : discountPercentage // ignore: cast_nullable_to_non_nullable
-              as double,
-      rating: null == rating
+              as double?,
+      rating: freezed == rating
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
-              as double,
-      stock: null == stock
+              as double?,
+      stock: freezed == stock
           ? _value.stock
           : stock // ignore: cast_nullable_to_non_nullable
-              as int,
-      brand: null == brand
+              as int?,
+      brand: freezed == brand
           ? _value.brand
           : brand // ignore: cast_nullable_to_non_nullable
-              as String,
-      category: null == category
+              as String?,
+      category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as String,
-      thumbnail: null == thumbnail
+              as String?,
+      thumbnail: freezed == thumbnail
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
-              as String,
-      images: null == images
+              as String?,
+      images: freezed == images
           ? _value._images
           : images // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String>?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_Product implements _Product {
+class _$_Product extends _Product {
   const _$_Product(
-      {required this.id,
-      required this.title,
-      required this.description,
-      required this.price,
-      required this.discountPercentage,
-      required this.rating,
-      required this.stock,
-      required this.brand,
-      required this.category,
-      required this.thumbnail,
-      required final List<String> images})
-      : _images = images;
+      {this.id,
+      this.title,
+      this.description,
+      this.price,
+      this.discountPercentage,
+      this.rating,
+      this.stock,
+      this.brand,
+      this.category,
+      this.thumbnail,
+      final List<String>? images})
+      : _images = images,
+        super._();
 
   factory _$_Product.fromJson(Map<String, dynamic> json) =>
       _$$_ProductFromJson(json);
 
+  /// This is the id of the product
   @override
-  final String id;
+  final int? id;
+
+  /// This is the title of the product
   @override
-  final String title;
+  final String? title;
+
+  /// This is the description of the product
   @override
-  final String description;
+  final String? description;
+
+  /// This is the price of the product
   @override
-  final double price;
+  final double? price;
+
+  /// This is the discount percentage of the product
   @override
-  final double discountPercentage;
+  final double? discountPercentage;
+
+  /// This is the rating of the product
   @override
-  final double rating;
+  final double? rating;
+
+  /// This is the stock of the product
   @override
-  final int stock;
+  final int? stock;
+
+  /// This is the brand of the product
   @override
-  final String brand;
+  final String? brand;
+
+  /// This is the category of the product
   @override
-  final String category;
+  final String? category;
+
+  /// This is the thumbnail of the product
   @override
-  final String thumbnail;
-  final List<String> _images;
+  final String? thumbnail;
+
+  /// This is the images of the product
+  final List<String>? _images;
+
+  /// This is the images of the product
   @override
-  List<String> get images {
+  List<String>? get images {
+    final value = _images;
+    if (value == null) return null;
     if (_images is EqualUnmodifiableListView) return _images;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_images);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -327,44 +374,67 @@ class _$_Product implements _Product {
   }
 }
 
-abstract class _Product implements Product {
+abstract class _Product extends Product {
   const factory _Product(
-      {required final String id,
-      required final String title,
-      required final String description,
-      required final double price,
-      required final double discountPercentage,
-      required final double rating,
-      required final int stock,
-      required final String brand,
-      required final String category,
-      required final String thumbnail,
-      required final List<String> images}) = _$_Product;
+      {final int? id,
+      final String? title,
+      final String? description,
+      final double? price,
+      final double? discountPercentage,
+      final double? rating,
+      final int? stock,
+      final String? brand,
+      final String? category,
+      final String? thumbnail,
+      final List<String>? images}) = _$_Product;
+  const _Product._() : super._();
 
   factory _Product.fromJson(Map<String, dynamic> json) = _$_Product.fromJson;
 
   @override
-  String get id;
+
+  /// This is the id of the product
+  int? get id;
   @override
-  String get title;
+
+  /// This is the title of the product
+  String? get title;
   @override
-  String get description;
+
+  /// This is the description of the product
+  String? get description;
   @override
-  double get price;
+
+  /// This is the price of the product
+  double? get price;
   @override
-  double get discountPercentage;
+
+  /// This is the discount percentage of the product
+  double? get discountPercentage;
   @override
-  double get rating;
+
+  /// This is the rating of the product
+  double? get rating;
   @override
-  int get stock;
+
+  /// This is the stock of the product
+  int? get stock;
   @override
-  String get brand;
+
+  /// This is the brand of the product
+  String? get brand;
   @override
-  String get category;
+
+  /// This is the category of the product
+  String? get category;
   @override
-  String get thumbnail;
+
+  /// This is the thumbnail of the product
+  String? get thumbnail;
   @override
-  List<String> get images;
+
+  /// This is the images of the product
+  List<String>? get images;
   @override
   @JsonKey(ignore: true)
   _$$_ProductCopyWith<_$_Product> get copyWith =>

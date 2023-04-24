@@ -3,5 +3,37 @@
     "counterAppBarTitle": "Contador",
     "@counterAppBarTitle": {
         "description": "Texto mostrado en la AppBar de la página del contador"
+    },
+    "welcomeLoginScreen": "Bienvenido",
+    "@welcomeLoginScreen": {
+        "description": "Texto mostrado en la pantalla de login de bienvenida"
+    },
+    "usernameFormField": "Usuario",
+    "@usernameFormField": {
+        "description": "Texto mostrado en el formulario para el usuario"
+    },
+    "passwordFormField": "Contraseña",
+    "@passwordFormField": {
+        "description": "Texto mostrado en el formulario para la contraseña"
+    },
+    "signInButtonText": "Ingresar",
+    "@signInButtonText": {
+        "description": "Texto mostrado en el boton para ingresar"
+    },
+    "searchProduct": "Buscar producto",
+    "@searchProductSearchBarTittle": {
+        "description": "Texto mostrado en la barra de busqueda de productos"
+    },
+    "productsNotFound": "No se encontraron productos con el nombre: ",
+    "@productsNotFound": {
+        "description": "Texto mostrado en la Center de la Products Page cuando no hay productos"
+    },
+    "addToShoppingCart": "Agregar al carrito",
+    "@addToShoppingCart": {
+        "description": "Texto mostrado en el boton para agregar al carrito"
+    },
+    "credencialesInvalidas": "Credenciales invalidas",
+    "@credencialesInvalidas": {
+        "description": "Texto mostrado en el snackbar cuando las credenciales son invalidas"
     }
 }

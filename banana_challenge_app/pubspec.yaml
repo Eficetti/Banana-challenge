@@ -7,6 +7,8 @@ environment:
   sdk: ">=2.18.0 <3.0.0"
 
 dependencies:
+  banana_challenge_client:
+    path: ../banana_challenge_client
   banana_challenge_commons:
     path: ../banana_challenge_commons
   bloc: ^8.1.1
@@ -16,6 +18,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   intl: ^0.17.0
+  resize: ^1.0.0
 
 
 dev_dependencies:

@@ -3,5 +3,38 @@
     "counterAppBarTitle": "Counter",
     "@counterAppBarTitle": {
         "description": "Text shown in the AppBar of the Counter Page"
+    },    
+    "welcomeLoginScreen": "Welcome",
+    "@welcomeLoginScreen": {
+        "description": "Text shown in the login screen as a welcome message"
+    },
+    "usernameFormField": "Username",
+    "@usernameFormField": {
+        "description": "Text shown in the forms for username"
+    },
+    "passwordFormField": "Password",
+    "@passwordFormField": {
+        "description": "Text shown in the forms for password"
+    },
+    "searchProduct": "Search Product",
+    "@searchProductSearchBarTittle": {
+        "description": "This is the text displayed on the Search Bar for products"
+    },
+    "signInButtonText": "Sign In",
+    "@signInButtonText": {
+        "description": "Text shown in the buttons for sign in"
+    },
+    "productsNotFound": "No products found with name: ",
+    "@productsNotFound": {
+        "description": "Text shown in the Center of the Products Page when there are no products"
+    },
+    "addToShoppingCart": "Add to shopping cart",
+    "@addToShoppingCart": {
+        "description": "Text shown in the Center of the Products Page when there are no products"
+    },
+    "invalidCredentials": "Invalid credentials",
+    "@invalidCredentials": {
+        "description": "Text shown when the user enters invalid credentials"
     }
+
 }

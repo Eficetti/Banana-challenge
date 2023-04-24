@@ -1,25 +1,27 @@
 import 'package:banana_challenge_client/src/repositories/base_repository.dart';
+import 'package:banana_challenge_commons/banana_challenge_commons.dart';
 import 'package:http/http.dart' as http;
 
-///
+/// Main repository for the user API calls.
 class RepositoryUser extends Repository {
-  ///
-  Future<bool> login() async {
-    final url = Uri.http('https://dummyjson.com/auth/login');
+  /// This method will login the user.
+  Future<User> login({
+    required String email,
+    required String password,
+  }) async {
+    final url = Uri.https(Repository.baseUrl, '/auth/login');
 
     final response = await http.post(
       url,
       body: {
-        'email': 'email',
-        'password': 'password',
+        'username': email,
+        'password': password,
       },
     );
 
-    return performClientOperation<bool>(
+    return performClientOperation<User>(
       response: response,
-      callback: (data) {
-        return true;
-      },
+      callback: User.fromJson,
     );
   }
 }
