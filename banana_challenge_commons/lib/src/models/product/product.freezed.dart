@@ -53,6 +53,9 @@ mixin _$Product {
   /// This is the images of the product
   List<String>? get images => throw _privateConstructorUsedError;
 
+  /// This value will count the amount of stars a product has
+  int? get starCount => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ProductCopyWith<Product> get copyWith => throw _privateConstructorUsedError;
@@ -74,7 +77,8 @@ abstract class $ProductCopyWith<$Res> {
       String? brand,
       String? category,
       String? thumbnail,
-      List<String>? images});
+      List<String>? images,
+      int? starCount});
 }
 
 /// @nodoc
@@ -101,6 +105,7 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
     Object? category = freezed,
     Object? thumbnail = freezed,
     Object? images = freezed,
+    Object? starCount = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -147,6 +152,10 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
               as List<String>?,
+      starCount: freezed == starCount
+          ? _value.starCount
+          : starCount // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -169,7 +178,8 @@ abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
       String? brand,
       String? category,
       String? thumbnail,
-      List<String>? images});
+      List<String>? images,
+      int? starCount});
 }
 
 /// @nodoc
@@ -193,6 +203,7 @@ class __$$_ProductCopyWithImpl<$Res>
     Object? category = freezed,
     Object? thumbnail = freezed,
     Object? images = freezed,
+    Object? starCount = freezed,
   }) {
     return _then(_$_Product(
       id: freezed == id
@@ -239,6 +250,10 @@ class __$$_ProductCopyWithImpl<$Res>
           ? _value._images
           : images // ignore: cast_nullable_to_non_nullable
               as List<String>?,
+      starCount: freezed == starCount
+          ? _value.starCount
+          : starCount // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -257,7 +272,8 @@ class _$_Product extends _Product {
       this.brand,
       this.category,
       this.thumbnail,
-      final List<String>? images})
+      final List<String>? images,
+      this.starCount})
       : _images = images,
         super._();
 
@@ -317,9 +333,13 @@ class _$_Product extends _Product {
     return EqualUnmodifiableListView(value);
   }
 
+  /// This value will count the amount of stars a product has
+  @override
+  final int? starCount;
+
   @override
   String toString() {
-    return 'Product(id: $id, title: $title, description: $description, price: $price, discountPercentage: $discountPercentage, rating: $rating, stock: $stock, brand: $brand, category: $category, thumbnail: $thumbnail, images: $images)';
+    return 'Product(id: $id, title: $title, description: $description, price: $price, discountPercentage: $discountPercentage, rating: $rating, stock: $stock, brand: $brand, category: $category, thumbnail: $thumbnail, images: $images, starCount: $starCount)';
   }
 
   @override
@@ -341,7 +361,9 @@ class _$_Product extends _Product {
                 other.category == category) &&
             (identical(other.thumbnail, thumbnail) ||
                 other.thumbnail == thumbnail) &&
-            const DeepCollectionEquality().equals(other._images, _images));
+            const DeepCollectionEquality().equals(other._images, _images) &&
+            (identical(other.starCount, starCount) ||
+                other.starCount == starCount));
   }
 
   @JsonKey(ignore: true)
@@ -358,7 +380,8 @@ class _$_Product extends _Product {
       brand,
       category,
       thumbnail,
-      const DeepCollectionEquality().hash(_images));
+      const DeepCollectionEquality().hash(_images),
+      starCount);
 
   @JsonKey(ignore: true)
   @override
@@ -386,7 +409,8 @@ abstract class _Product extends Product {
       final String? brand,
       final String? category,
       final String? thumbnail,
-      final List<String>? images}) = _$_Product;
+      final List<String>? images,
+      final int? starCount}) = _$_Product;
   const _Product._() : super._();
 
   factory _Product.fromJson(Map<String, dynamic> json) = _$_Product.fromJson;
@@ -435,6 +459,10 @@ abstract class _Product extends Product {
 
   /// This is the images of the product
   List<String>? get images;
+  @override
+
+  /// This value will count the amount of stars a product has
+  int? get starCount;
   @override
   @JsonKey(ignore: true)
   _$$_ProductCopyWith<_$_Product> get copyWith =>

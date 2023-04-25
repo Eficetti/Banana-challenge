@@ -41,6 +41,9 @@ class Product with _$Product {
 
     /// This is the images of the product
     List<String>? images,
+
+    /// This value will count the amount of stars a product has
+    int? starCount,
   }) = _Product;
 
   /// Method from json to product

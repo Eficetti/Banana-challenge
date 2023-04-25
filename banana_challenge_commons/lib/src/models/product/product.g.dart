@@ -19,6 +19,7 @@ _$_Product _$$_ProductFromJson(Map<String, dynamic> json) => _$_Product(
       thumbnail: json['thumbnail'] as String?,
       images:
           (json['images'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      starCount: json['starCount'] as int?,
     );
 
 Map<String, dynamic> _$$_ProductToJson(_$_Product instance) =>
@@ -34,4 +35,5 @@ Map<String, dynamic> _$$_ProductToJson(_$_Product instance) =>
       'category': instance.category,
       'thumbnail': instance.thumbnail,
       'images': instance.images,
+      'starCount': instance.starCount,
     };

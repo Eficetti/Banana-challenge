@@ -1,6 +1,8 @@
 import 'package:banana_challenge_app/constants.dart';
+import 'package:banana_challenge_app/product/cubit/product_cubit.dart';
 import 'package:banana_challenge_commons/banana_challenge_commons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:resize/resize.dart';
 
 class ProductListCard extends StatelessWidget {
@@ -31,7 +33,7 @@ class ProductListCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     SizedBox(
-                      width: 229.sp,
+                      width: 200.sp,
                       child: Text(
                         product.title ?? '',
                         overflow: TextOverflow.ellipsis,
@@ -40,6 +42,17 @@ class ProductListCard extends StatelessWidget {
                           fontSize: 20.sp,
                           fontWeight: FontWeight.w400,
                         ),
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        context.read<ProductCubit>().updateStarCount(product);
+                      },
+                      child: Icon(
+                        Icons.star,
+                        color: (product.starCount ?? 0) > 0
+                            ? Colors.yellow
+                            : Colors.black,
                       ),
                     ),
                     Text(

@@ -46,6 +46,9 @@ class ProductCard extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
+          Text(
+            'Stars: ${product.starCount ?? 0}',
+          )
         ],
       ),
     );

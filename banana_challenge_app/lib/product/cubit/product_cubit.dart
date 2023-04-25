@@ -1,5 +1,6 @@
 import 'package:banana_challenge_app/product/cubit/product_state.dart';
 import 'package:banana_challenge_client/banana_challenge_client.dart';
+import 'package:banana_challenge_commons/banana_challenge_commons.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProductCubit extends Cubit<ProductState> {
@@ -46,6 +47,26 @@ class ProductCubit extends Cubit<ProductState> {
       );
     } catch (e) {
       emit(state.copyWith(status: ProductStatus.failure));
+    }
+  }
+
+  void updateStarCount(Product product) {
+    final productStars = (product.starCount ?? 0) + 1;
+    try {
+      emit(
+        state.copyWith(
+          status: ProductStatus.success,
+          products: state.products
+              .map(
+                (e) => e.id == product.id
+                    ? product.copyWith(starCount: productStars)
+                    : e,
+              )
+              .toList(),
+        ),
+      );
+    } catch (e, st) {
+      throw Exception('We should handle: $e, $st');
     }
   }
 }
